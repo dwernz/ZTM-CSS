@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            padding: 2rem;
+            background-color: #f4f5f7;
+        }
+
+        label, input, output {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=number] {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input[type=text]:focus,
+        input[type=email]:focus,
+        input[type=number]:focus {
+            border-color: #0077cc;
+            outline: none;
+        }
+
+        /* Accessible Rich Internet Applications */
+        input[aria-invalid=true], input:invalid {
+            border: 2px solid red;
+            background-color: #ffe6e6;
+        }
+
+        input:disabled {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Label Elements -->
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <!-- Pattern Attribute -->
+    <label for="zip">Zip Code:</label>
+    <input type="text" id="zip" name="zip" pattern="\d{5}" title="Please enter a valid US zip code">
+
+    <!-- Required Attribute -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+
+    <!-- Min & Max Attributes -->
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="18" max="99">
+
+    <!-- Disabled Attribute -->
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" disabled>
+
+    <!-- Aria Invalid Attribute -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" pattern="[a-zA-Z0-9_]{5,}" placeholder="Enter letters, numbers, and underscores only" oninput="validateUsername()" aria-invalid="false">
+
+    <!-- Output Element -->
+    <form oninput="updateTotal()">
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" value="10" readonly><br />
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1"><br />
+
+        <label for="total">Total:</label>
+        <output id="total" name="total" for="price quantity">$10</output>
+    </form>
+
+    <script>
+        function validateUsername() {
+            let usernameInput = document.getElementById("username");
+            let isValid = usernameInput.checkValidity();
+            usernameInput.setAttribute('aria-invalid', !isValid);
+        }
+
+        function updateTotal() {
+            let price = parseFloat(document.getElementById("price").value);
+            let quantity = parseFloat(document.getElementById("quantity").value);
+            let total = price * quantity;
+            document.getElementById("total").value = '$' + total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
