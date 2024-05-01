@@ -1,0 +1,69 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: whitesmoke;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.color {
+
+}
+
+.font-size {
+
+}
+
+.text-align {
+
+}
+
+.line-height {
+
+}
+
+.letter-spacing {
+
+}
+
+.border {
+
+}
+
+.margin {
+
+}
+
+.padding {
+
+}
+
+.width-height {
+
+}
+
+.position {
+
+}
+
+.transition {
+
+}
+
+.transform {
+
+}
